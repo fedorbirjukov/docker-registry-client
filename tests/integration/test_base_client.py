@@ -46,4 +46,4 @@ def test_base_client_edit_manifest(docker_client, registry):
     errors = [evt for evt in pull if 'error' in evt]
     assert errors == []
 
-    assert {evt.get('status') for evt in pull} & expected_statuses
+    assert {evt.get('status') for evt in pull} <= expected_statuses
